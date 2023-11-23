@@ -26,5 +26,9 @@ public class PlayerMovement : MonoBehaviour
             Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, movementDirection);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
         }
+
+        int Helt = GameObject.Find("Fry").GetComponent<PlayerController>().currentHealth;
+        if (Helt <= 0)
+            Destroy(this);
     }
 }

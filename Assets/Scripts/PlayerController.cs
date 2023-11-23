@@ -3,7 +3,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public int maxHealth = 100;
-    private int currentHealth;
+    public int currentHealth;
+    public SpriteRenderer spriteRenderer;
+    public Sprite deadsprite;
 
     void Start()
     {
@@ -29,6 +31,7 @@ public class PlayerController : MonoBehaviour
     void Die()
     {
         Debug.Log("Player has died.");
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        spriteRenderer.sprite = deadsprite; gameObject.transform.localScale = new Vector2(0.1f,0.1f);
     }
 }
