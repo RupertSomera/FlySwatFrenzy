@@ -31,4 +31,14 @@ public class PlayerMovement : MonoBehaviour
         if (Helt <= 0)
             Destroy(this);
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        // Check if the trigger is the "spraycan" GameObject
+        if (other.gameObject.CompareTag("spraycan"))
+        {
+            // Reduce Fry's speed by 5
+            speed -= 5f;
+            Debug.Log("Fry's speed reduced to: " + speed);
+        }
+    }
 }
