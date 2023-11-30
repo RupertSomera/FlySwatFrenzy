@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using UnityEngine.SceneManagement;
 
 public class CreateAndJoinRoom : MonoBehaviourPunCallbacks
 {
@@ -17,6 +18,12 @@ public class CreateAndJoinRoom : MonoBehaviourPunCallbacks
     public void JoinRoom()
     {
         PhotonNetwork.JoinRoom(joinInput.text);
+    }
+
+    public override void OnJoinRoomFailed(short returnCode, string message)
+    {
+        SceneManager.LoadScene("LoadingScene");
+        base.OnJoinRoomFailed(returnCode, message);
     }
 
     public override void OnJoinedRoom()
