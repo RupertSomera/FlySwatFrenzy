@@ -97,7 +97,6 @@ GameObject:
   - component: {fileID: 7041179131006266270}
   - component: {fileID: 6750910938338578845}
   - component: {fileID: 1505026373799524800}
-  - component: {fileID: 6424672189807646863}
   - component: {fileID: 7319502932768320660}
   - component: {fileID: 3385361578318882421}
   m_Layer: 0
@@ -262,22 +261,10 @@ MonoBehaviour:
   standardspeed: 0
   speed: 10
   rotationSpeed: 720
---- !u!114 &6424672189807646863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5077390157020994100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 083a262bd3a0205409d3cb541c82285e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   maxHealth: 100
-  currentHealth: -102750
+  currentHealth: 0
   spriteRenderer: {fileID: 0}
-  deadsprite: {fileID: 0}
+  deadsprite: {fileID: 21300000, guid: d094d4dbbdf65094ea3d60fa12195f97, type: 3}
 --- !u!114 &7319502932768320660
 MonoBehaviour:
   m_ObjectHideFlags: 0

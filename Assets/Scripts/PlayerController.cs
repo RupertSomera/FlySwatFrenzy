@@ -6,15 +6,22 @@ public class PlayerController : MonoBehaviour
     public int currentHealth;
     public SpriteRenderer spriteRenderer;
     public Sprite deadsprite;
+    public bool isAlive = true;
+    
 
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
     }
 
     void Update()
     {
-        
+        if (currentHealth < 0)
+        {
+            isAlive = false;
+            Die();
+        }
     }
 
     public void TakeDamage(int damage)
@@ -22,16 +29,19 @@ public class PlayerController : MonoBehaviour
         
         currentHealth -= damage;
         Debug.Log("Player health is " + currentHealth);
-        if (currentHealth <= 0)
-        {          
-            Die();
-        }
+        
     }
 
     void Die()
     {
+        spriteRenderer.sprite = deadsprite;
+        transform.localScale = new Vector2(0.1f, 0.1f);
         Debug.Log("Player has died.");
-        //gameObject.SetActive(false);
-        spriteRenderer.sprite = deadsprite; gameObject.transform.localScale = new Vector2(0.1f,0.1f);
+        float despawntimer = 2;
+        despawntimer -= Time.deltaTime;
+        if (despawntimer < 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
