@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using UnityEditor;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Sprite deadsprite;
     public float despawntimer = 2;
-
+    public TextMeshProUGUI playerName;
     private void Start()
     {
         standardspeed = speed;
@@ -28,6 +29,9 @@ public class PlayerMovement : MonoBehaviour
         thisGameObject = GetComponent<GameObject>();
         currentHealth = maxHealth;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        if(view.IsMine)
+        playerName.text = PlayerPrefs.GetString("PlayerName", "DefaultName");
+        Debug.Log("Loaded Player Name: " + playerName);
     }
     void Update()
     {
